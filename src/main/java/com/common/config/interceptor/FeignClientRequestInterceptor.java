@@ -21,6 +21,7 @@ public class FeignClientRequestInterceptor implements RequestInterceptor {
         SessionHelper sessionHelper = sessionHelperProvider.getIfAvailable();
         if (sessionHelper != null) {
             requestTemplate.header("userId", String.valueOf(sessionHelper.getCurrentUserID()));
+            requestTemplate.header("roles", String.join(",", sessionHelper.getRoles()));
             requestTemplate.header("lang", String.valueOf(sessionHelper.getLanguage()));
         }
     }

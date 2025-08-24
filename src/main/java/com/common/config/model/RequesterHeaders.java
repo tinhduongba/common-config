@@ -11,5 +11,7 @@ import java.util.UUID;
 public class RequesterHeaders {
     private UUID userId;
 
+    private String[] roles;
+
     private String language;
 }

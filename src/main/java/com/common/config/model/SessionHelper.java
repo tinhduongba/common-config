@@ -24,6 +24,18 @@ public class SessionHelper {
         }
     }
 
+    public String[] getRoles() {
+        try {
+            if (requesterHeaders == null || requesterHeaders.getRoles() == null) {
+                return new String[]{};
+            }
+            return requesterHeaders.getRoles();
+
+        } catch (Exception ex) {
+            return new String[]{};
+        }
+    }
+
     public String getLanguage() {
         try {
             if (requesterHeaders == null || requesterHeaders.getLanguage() == null) {

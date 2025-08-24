@@ -10,7 +10,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
-import java.time.OffsetDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 @Getter
@@ -21,7 +21,7 @@ public class BaseEntityAudit extends BaseEntity implements Serializable {
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false, updatable = false)
-    private OffsetDateTime createdAt;
+    private Instant createdAt;
 
     @CreatedBy
     @Column(nullable = false, updatable = false)
@@ -29,7 +29,7 @@ public class BaseEntityAudit extends BaseEntity implements Serializable {
 
     @LastModifiedDate
     @Temporal(TemporalType.TIMESTAMP)
-    private OffsetDateTime updatedAt;
+    private Instant updatedAt;
 
     @LastModifiedBy
     private UUID updatedBy;

@@ -12,8 +12,10 @@ public record RequesterHeaderInterceptor(RequesterHeaders requesterHeaders) impl
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         String userId = request.getHeader("userId");
+        String roles = request.getHeader("roles");
         String language = request.getHeader("lang");
-        if (userId != null) requesterHeaders.setUserId(UUID.fromString(userId));
+        if (Strings.isBlank(userId)) requesterHeaders.setUserId(UUID.fromString(userId));
+        if (Strings.isBlank(roles)) requesterHeaders.setRoles(roles.split(","));
         requesterHeaders.setLanguage(Strings.isBlank(language) ? "en" : language);
         return true;
     }
