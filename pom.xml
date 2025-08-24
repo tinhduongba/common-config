@@ -102,7 +102,7 @@
   <groupId>io.github.tinhduongba</groupId>
   <artifactId>common-config</artifactId>
   <name>common-config</name>
-  <version>0.0.3</version>
+  <version>0.0.4</version>
   <packaging>jar</packaging>
   <properties>
     <java.version>21</java.version>

@@ -14,8 +14,8 @@ public record RequesterHeaderInterceptor(RequesterHeaders requesterHeaders) impl
         String userId = request.getHeader("userId");
         String roles = request.getHeader("roles");
         String language = request.getHeader("lang");
-        if (Strings.isBlank(userId)) requesterHeaders.setUserId(UUID.fromString(userId));
-        if (Strings.isBlank(roles)) requesterHeaders.setRoles(roles.split(","));
+        if (!Strings.isBlank(userId)) requesterHeaders.setUserId(UUID.fromString(userId));
+        if (!Strings.isBlank(roles)) requesterHeaders.setRoles(roles.split(","));
         requesterHeaders.setLanguage(Strings.isBlank(language) ? "en" : language);
         return true;
     }
