@@ -47,4 +47,16 @@ public class SessionHelper {
             return "en";
         }
     }
+
+    public UUID getCompanyId() {
+        try {
+            if (requesterHeaders == null) {
+                return null;
+            }
+            return requesterHeaders.getCompanyId();
+
+        } catch (Exception ex) {
+            return null;
+        }
+    }
 }

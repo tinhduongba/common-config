@@ -28,7 +28,7 @@ public class CustomExceptionHandler {
     }
 
     @ExceptionHandler(NotFoundException.class)
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResModel<String> handlerRequestException(NotFoundException ex) {
         return new ResModel<>(
                 null,

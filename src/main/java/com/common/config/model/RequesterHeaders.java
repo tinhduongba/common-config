@@ -14,4 +14,6 @@ public class RequesterHeaders {
     private String[] roles;
 
     private String language;
+
+    private UUID companyId;
 }

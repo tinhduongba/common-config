@@ -23,6 +23,8 @@ public class FeignClientRequestInterceptor implements RequestInterceptor {
             requestTemplate.header("userId", String.valueOf(sessionHelper.getCurrentUserID()));
             requestTemplate.header("roles", String.join(",", sessionHelper.getRoles()));
             requestTemplate.header("lang", String.valueOf(sessionHelper.getLanguage()));
+            requestTemplate.header("companyId", sessionHelper.getCompanyId() == null ? ""
+                    : String.valueOf(sessionHelper.getCompanyId()));
         }
     }
 }
